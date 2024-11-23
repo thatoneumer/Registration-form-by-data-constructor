@@ -43,17 +43,17 @@
         <form action="" onSubmit="submitData(event)">
           <div class="user-name">
             <label for="username">Username</label>
-            <input type="text" id="username" placeholder="username" />
+            <input type="text" id="username" oninput="unValid(event)" placeholder="username" />
             <span id="error"></span>
           </div>
           <div class="user-password">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Password" />
+            <input type="password" id="password" oninput="upValid(event)" placeholder="Password" />
             <span id="error"></span>
           </div>
           <div class="user-email">
             <label for="email">Email</label>
-            <input type="text" id="email" placeholder="abc@gmail.com" />
+            <input type="email" id="email" oninput="ueValid(event)" placeholder="abc@gmail.com" />
             <span id="error"></span>
           </div>
           <div class="radio-btn">
