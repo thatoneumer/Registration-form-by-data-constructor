@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Constructor</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./app.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+      }
+
+      .main-div {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-div {
+        padding: 30px 20px 30px 20px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      #error {
+        display: none;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="form-div">
+        <h1>Data Constructor</h1>
+        <form action="" onSubmit="submitData(event)">
+          <div class="user-name">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="username" />
+            <span id="error"></span>
+          </div>
+          <div class="user-password">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" />
+            <span id="error"></span>
+          </div>
+          <div class="user-email">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="abc@gmail.com" />
+            <span id="error"></span>
+          </div>
+          <div class="radio-btn">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" checked value="male" id="male" />
+            <label for="female">Female</label>
+            <input type="radio" value="female" name="gender" id="female" />
+          </div>
+          <div class="city-box">
+            <label for="userCity">City</label>
+            <select name="city" id="userCity">
+              <option value="empty" hidden>Select Your City</option>
+              <option value="karachi">karachi</option>
+              <option value="islamabad">Islamabad</option>
+              <option value="lahore">Lahore</option>
+              <option value="sukkur">Sukkur</option>
+            </select>
+            <span id="error">Please Select your city</span>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
