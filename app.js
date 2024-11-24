@@ -1,11 +1,45 @@
-
 // getting ids.
-var userName = document.getElementById('username');
-var userPassword = document.getElementById('password');
-var userEmail = document.getElementById('email');
-var userGender = document.getElementsByName('gender');
+var userName = document.getElementById("username");
+var userPassword = document.getElementById("password");
+var userEmail = document.getElementById("email");
+var userGender = document.getElementsByName("gender");
 var userCity = document.getElementById("userCity");
 
+function Dataconstructor(name, password, email, gender, city) {
+  this.name = name;
+  this.password = password;
+  this.email = email;
+  this.gender = gender;
+  this.city = city;
+}
+
+function usergenderChecker() {
+  for (var i = 0; i < userGender.length; i++) {
+    if (userGender[i].checked == true) {
+      return userGender[i].value;
+    }
+  }
+}
+
+function userCitychecker() {
+  if (userCity.selectedIndex === 0) {
+    alert("Please Select City");
+  }
+  return userCity.value;
+}
+
+function submitData(e) {
+  e.preventDefault();
+  const userData = new Dataconstructor(
+    userName.value,
+    userPassword.value,
+    userEmail.value,
+    usergenderChecker(),
+    userCitychecker()
+  );
+
+  console.table(userData);
+}
 
 function unValid(uname) {
   if (uname.target.value.length < 5) {
@@ -36,34 +70,3 @@ function ueValid(mail) {
     mail.target.nextElementSibling.innerText = "Invalid Email Address";
   }
 }
-
-function Dataconstructor(name, password, email, gender) {
-  this.name = name;
-  this.password = password;
-  this.email = email;
-  this.gender = gender;
-}
-
-function usergenderChecker(){
-    for(var i=0; i < userGender.length; i++)
-    {
-        if(userGender[i].checked == true){
-            return userGender[i].value;
-        }
-    }
-}
-
-function submitData(e){
-    e.preventDefault();
-    const userData = new Dataconstructor(
-      userName.value,
-      userPassword.value,
-      userEmail.value,
-      usergenderChecker()
-    );
-
-    console.table(userData)
-}
-
-
-
