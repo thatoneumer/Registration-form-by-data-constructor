@@ -6,55 +6,73 @@
     <title>Data Constructor</title>
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./app.js"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        text-decoration: none;
-      }
-
-      .main-div {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .form-div {
-        padding: 30px 20px 30px 20px;
-        border: 1px solid black;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-      }
-
-      #error {
-        display: none;
-        color: red;
-      }
-    </style>
   </head>
   <body>
     <div class="main-div">
       <div class="form-div">
-        <h1>Data Constructor</h1>
-        <form action="" onSubmit="submitData(event)">
-          <div class="user-name">
-            <label for="username">Username</label>
-            <input type="text" id="username" oninput="unValid(event)" placeholder="username" />
-            <span id="error"></span>
+        <h1 id="heading">Data Constructor</h1>
+        <form class="form" onSubmit="submitData(event)">
+          <div class="userNames">
+            <div class="userFirstname user-box">
+              <label for="Fname">First Name</label>
+              <input
+                type="text"
+                name="fname"
+                id="Fname"
+                class="inputUser"
+                placeholder="type your first name"
+                required
+              />
+            </div>
+            <div class="userLastname user-box">
+              <label for="Lname">Last Name</label>
+              <input
+                type="text"
+                name="fname"
+                id="Lname"
+                class="inputUser"
+                placeholder="type your Last name"
+                required
+              />
+            </div>
           </div>
-          <div class="user-password">
-            <label for="password">Password</label>
-            <input type="password" id="password" oninput="upValid(event)" placeholder="Password" />
-            <span id="error"></span>
+          <div class="userThings">
+            <div class="user-name user-box">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                class="inputUser"
+                oninput="unValid(event)"
+                placeholder="type username"
+                required
+              />
+              <span id="error"></span>
+            </div>
+            <div class="user-password user-box">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="inputUser"
+                oninput="upValid(event)"
+                placeholder="create Password"
+                required
+              />
+              <span id="error"></span>
+            </div>
           </div>
-          <div class="user-email">
+          <div class="user-email user-box">
             <label for="email">Email</label>
-            <input type="email" id="email" oninput="ueValid(event)" placeholder="abc@gmail.com" />
-            <span id="error"></span>
+            <input
+              type="email"
+              id="email"
+              class="inputUser"
+              oninput="ueValid(event)"
+              placeholder="abc@gmail.com"
+              required
+            />
+            <span id="error" class="emailError"></span>
           </div>
           <div class="radio-btn">
             <label for="male">Male</label>

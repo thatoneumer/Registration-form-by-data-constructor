@@ -1,11 +1,17 @@
 // getting ids.
+var userFirstname = document.getElementById("Fname");
+var userLastname = document.getElementById("Lname");
 var userName = document.getElementById("username");
 var userPassword = document.getElementById("password");
 var userEmail = document.getElementById("email");
 var userGender = document.getElementsByName("gender");
 var userCity = document.getElementById("userCity");
+var emError = document.getElementsByClassName("emailError")[0];
+var heaDing = document.getElementById("heading");
 
-function Dataconstructor(name, password, email, gender, city) {
+function Dataconstructor(fname, lname, name, password, email, gender, city) {
+  this.fname = fname;
+  this.lname = lname;
   this.name = name;
   this.password = password;
   this.email = email;
@@ -13,33 +19,7 @@ function Dataconstructor(name, password, email, gender, city) {
   this.city = city;
 }
 
-function usergenderChecker() {
-  for (var i = 0; i < userGender.length; i++) {
-    if (userGender[i].checked == true) {
-      return userGender[i].value;
-    }
-  }
-}
-
-function userCitychecker() {
-  if (userCity.selectedIndex === 0) {
-    alert("Please Select City");
-  }
-  return userCity.value;
-}
-
-function submitData(e) {
-  e.preventDefault();
-  const userData = new Dataconstructor(
-    userName.value,
-    userPassword.value,
-    userEmail.value,
-    usergenderChecker(),
-    userCitychecker()
-  );
-
-  console.table(userData);
-}
+// Validations
 
 function unValid(uname) {
   if (uname.target.value.length < 5) {
@@ -69,4 +49,44 @@ function ueValid(mail) {
     mail.target.nextElementSibling.style.display = "block";
     mail.target.nextElementSibling.innerText = "Invalid Email Address";
   }
+}
+
+// Validations
+
+function usergenderChecker() {
+  for (var i = 0; i < userGender.length; i++) {
+    if (userGender[i].checked == true) {
+      return userGender[i].value;
+    }
+  }
+}
+
+function userCitychecker() {
+  if (userCity.selectedIndex === 0) {
+    alert("Please Select City");
+  }
+  return userCity.value;
+}
+
+function submitData(e) {
+  e.preventDefault();
+  if (userEmail.value === "umercrusher34@gmail.com") {
+    emError.style.display = "block";
+    emError.innerText = "Email already exist";
+    return;
+  }
+  emError.style.display = "none";
+
+  const userData = new Dataconstructor(
+    userFirstname.value,
+    userLastname.value,
+    userName.value,
+    userPassword.value,
+    userEmail.value,
+    usergenderChecker(),
+    userCitychecker()
+  );
+  heaDing.innerText = "Successful";
+  heaDing.style.color = "Green";
+  console.table(userData);
 }
